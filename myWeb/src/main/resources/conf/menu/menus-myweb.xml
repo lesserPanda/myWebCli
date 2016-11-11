@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+	<menu sort="3" key="myweb:menu:top" name="博客首页"  img="guide1.png">
+		<menu sort="0" key="myweb:menu:left" name="博客首页" >
+			<menu sort="0" key="myweb:menu:myweb" name="博客首页" img="homepage.png">
+				<menu sort="0" key="Article:article:list" name="文章列表" url="/Article/article/list.do" >
+					<perm sort="0" name="查看" code="Article:article:view"/>
+					<perm sort="3" name="保存" code="Article:article:add"/>
+					<perm sort="4" name="更新" code="Article:article:alter"/>
+					<perm sort="6" name="删除" code="Article:article:remove"/>
+				</menu>	
+				
+				<menu sort="1" key="MusicInfo:musicInfo:list" name="音乐信息列表" url="/MusicInfo/musicInfo/list.do" >
+					<perm sort="0" name="查看" code="MusicInfo:musicInfo:view"/>
+					<perm sort="3" name="保存" code="MusicInfo:musicInfo:add"/>
+					<perm sort="4" name="更新" code="MusicInfo:musicInfo:alter"/>
+					<perm sort="6" name="删除" code="MusicInfo:musicInfo:remove"/>
+				</menu>	
+				
+				<menu sort="2" key="MessagePerple:messagePerple:list" name="留言板列表" url="/MessagePerple/messagePerple/list.do" >
+					<perm sort="0" name="查看" code="MessagePerple:messagePerple:view"/>
+					<perm sort="3" name="保存" code="MessagePerple:messagePerple:add"/>
+					<perm sort="4" name="更新" code="MessagePerple:messagePerple:alter"/>
+					<perm sort="6" name="删除" code="MessagePerple:messagePerple:remove"/>
+				</menu>	
+
+				<menu sort="3" key="SkillInfo:skillInfo:list" name="技能表列表" url="/SkillInfo/skillInfo/list.do" >
+					<perm sort="0" name="查看" code="SkillInfo:skillInfo:view"/>
+					<perm sort="3" name="保存" code="SkillInfo:skillInfo:add"/>
+					<perm sort="4" name="更新" code="SkillInfo:skillInfo:alter"/>
+					<perm sort="6" name="删除" code="SkillInfo:skillInfo:remove"/>
+				</menu>	
+				
+			</menu>
+		</menu>
+	</menu>
+</menus>

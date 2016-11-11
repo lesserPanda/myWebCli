@@ -1,0 +1,126 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin: 0;padding: 0;}
+html,body{ margin:0px; padding:0px; width:100%; height:100%; font-family:"微软雅黑";}
+.formBar{ width:275px; height:100%; border-right:solid 1px #E3E3E3; float:left;}
+.formTitle{margin-bottom:2px; width:250xp;font-size:22px; height:40px; padding-left:0px; border-bottom:solid 1px #E3E3E3;}
+.formNav{ width:100%; height:40px; border-bottom:solid 1px #E3E3E3; line-height:40px;}
+.formNav ul{ margin:0px; padding:0px;}
+.formNav ul li{ cursor:pointer; float:left; list-style:none; height:32px; line-height:38px; padding-top:6px; margin-left:10px; width:60px; text-align:center; font-size:14px; color:#000;}
+
+.content{ width:100%; height:600px; display:none; overflow-y:auto;}
+.formComponentTitle{ width:250px; color:#000; font-size:14px; height:10px; padding-left:20px; padding-top:20px;}
+.formComponentSelects{ width:100%; height:auto; margin-top:10px; }
+.formComponentSelects a{line-height:25px; width:56px; padding-left:25px; padding-right:25px; padding-top:5px; padding-bottom:5px; background:#2896ca; color:#FFF; display:inline-block; margin-left:20px; margin-top:10px; border-radius:3px; font-size:14px;}
+
+.fieldType{ width:215px; height:40px; background-color:#EDEDED; border-radius:3px; margin-left:20px; margin-top:15px; color:#C2C2C2; padding-left:15px; line-height:40px;}
+.fieldType span{ color:#000;}
+.fieldSetTitle{width:200px; color:#000; font-size:16px; height:20px; padding-bottom:10px;margin-top: 20px;}
+.fieldSetWhole{ width:230px; border-left:solid 1px #C0CAC3; margin-top:5px;}
+.fieldSetWhole .fieldName{ width:100%; height:40px;  margin-left:-3px; margin-bottom:2px; margin-top:3px; padding-left: 25px;}
+.fieldSetWholeHt{border-left:#16a2d6 solid 6px;padding-left: 20px!important;}
+.fieldSetWholeInputHt{ border:solid 1px #16A2D6!important; margin-left:20px!important;}
+.fieldSetWhole .fieldName input{ margin-top:5px; width:205px; height:30px;border-radius:3px; border:solid 1px #CDCDCD;padding-left: 0.3em;}
+.fieldPrompt{ width:100%; height:60px; margin-top:3px;  margin-left:-3px;padding-left: 25px;}
+.fieldPrompt textarea{margin-top:5px; width:205px; height:50px; max-height:70px;border-radius:3px;border:solid 1px #CDCDCD;padding-left: 0.3em;}
+.fieldCheck{ display:block; width:100px; height:30px; background:url(../images/12_03.png) no-repeat left; line-height:30px; padding-left:20px; margin-left:20px; color:#CCC; font-size:14px;}
+.fieldCheckHt{ background-image:url(../images/122_03.png)!important; color:#16A2D6;}
+.fieldSelectLists{margin-top:0px; height:40px; width:200px; background:url(../images/12_03.png) no-repeat left; line-height:40px; padding-left:30px; position:relative;}
+.fieldSelectLists span{z-index:999; width:14px; height:14px;background:url(../images/chacha_03.png) no-repeat; position:absolute; left:198px; top:14px;cursor:pointer;}
+.fieldSelectLists input{ width:185px; height:30px;border-radius:3px; border:solid 1px #CDCDCD;}
+.fieldSelectLists input:focus{border:#16a2d6 solid 1px;}
+.fieldSelectBt{ margin-left:30px; padding-left:10px; padding-top:5px; padding-bottom:5px; background-color:#3BA7DF;border-radius:3px; border:none; cursor:pointer; margin-top:20px; margin-bottom:30px; color:#FFF; font-size:14px;padding-right:10px;}
+.formsetUpTitle{height:20px;line-height:20px; font-size:16px; color:#000;margin-top: 20px;}
+.formsetUp input{ width:100%; height:30px; border-radius:3px; border:solid 1px #CDCDCD; margin-top:10px;}
+.formsetUp input:focus{border:#16a2d6 solid 1px;}
+.formsetUpType{
+	background: none repeat scroll 0 0 #EDEDED;
+    color: #666;
+    font-size: 1.25em;
+    font-weight: normal;
+    padding: 0.75em;
+}
+.formsetUpType span{display: block;}
+.field-type::before {
+    color: #999;
+    content: "Type: ";
+}
+.ziTi{ color:#CBCBCB;width:100%;height:20px;line-height:20px!important;}
+.ziTi span{ color:#000;display:inline;}
+.formPreservation{ width:275px; height:80px; position:fixed; bottom:0px;border-top:solid 1px #E3E3E3;}
+.formPreservation a{ width:82px; display:inline-block; border-radius:3px; text-align:center; line-height:30px;margin-top:30px; margin-left:30px; height:30px; background:#3ba7df; color:#FFF; font-size:16px; cursor:pointer; text-decoration:none;}
+
+.viewBar{position:relative;}
+.viewBarName{ width:400px; height:40px; font-size:22px; padding-top:5px; padding-left:40px; color:#000;}
+.viewBarDescription{ width:400px; height:20px; font-size:16px; padding-left:40px; color:#000;}
+.viewBar table{border-top:solid 1px #D3D9DC;border-right:solid 1px #D3D9DC; margin-left:40px; margin-top:20px; width:93%; text-align: center;}
+.viewBar table tbody tr{ width:100%;}
+.viewBar table tbody tr td{  height:30px; border-left:solid 1px #D3D9DC;border-bottom:solid 1px #D3D9DC;width:100px!important;}
+.editing{ background-color:#E0ECF3;}
+.none{display: none;}
+.over{background:#E74C3C;z-index: 9999}
+.quanpingBt{ padding-left:13px; padding-right:13px; padding-top:5px; padding-bottom:5px; background:#2896ca; border:none; color:#FFF; border-radius:3px; font-size:14px; position:absolute; top:10px; right:40px;}
+.save-form{ padding-left:13px; padding-right:13px; padding-top:5px; padding-bottom:5px; background:#2896ca; border:none; color:#FFF; border-radius:3px; font-size:14px; position:absolute; top:10px; right:110px;}
+.fieldSelect{
+	padding-top:20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.fieldSelect input{border: 1px solid #cdcdcd;border-radius: 3px;height: 30px;margin-top: 5px; padding-left: 0.3em;}
+.fieldSelect select{border: 1px solid #cdcdcd;border-radius: 3px;height: 30px;margin-top: 5px; padding-left: 0.3em;}
+.fieldSelect input:focus{border: 1px solid #16a2d6;}
+.fieldSelect select:focus{border: 1px solid #16a2d6;}
+.fieldSelect textarea:focus{border: 1px solid #16a2d6;}
+
+.tabs li.tabs-selected {
+  border-bottom:solid 3px #16A2E0;
+}
+.help-block{display: none;}
+.draggableMove{
+	z-index:999;
+	line-height:25px; width:56px; padding-left:25px; padding-right:25px; padding-top:5px; padding-bottom:5px; background:#2896ca; color:#FFF; display:inline-block; border-radius:3px; font-size:14px;
+}
+
+#designTable input[type="text"] {
+    border: 1px solid #c5d6e0;
+    height: 20px;
+}
+#designTable select{
+    border: 1px solid #c5d6e0;
+    height: 22px;
+    line-height: 22px;
+}
+
+#designTable select[multiple]{
+    height: auto;
+}
+#designTable textarea {
+    border: 1px solid #c5d6e0;
+    width: 68%;
+}
+
+#designTable td {
+	padding-top:3px;
+    vertical-align: middle;
+}
+
+.insert-down {
+  background: url('../images/insert-down.png') no-repeat center center;
+}
+.insert-top {
+  background: url('../images/insert-top.png') no-repeat center center;
+}
+.insert-left {
+  background: url('../images/insert-left.png') no-repeat center center;
+}
+.insert-right {
+  background: url('../images/insert-right.png') no-repeat center center;
+}
+.table-attr {
+  background: url('../images/table-attr.png') no-repeat center center;
+}
+.font-align {
+  background: url('../images/font-align.png') no-repeat center center;
+}
+	
+}

@@ -1,0 +1,1567 @@
+/* CSS Document */
+body{
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+td{
+	font-size: 12px;
+}
+input,select{
+	vertical-align: middle;
+}
+a:link {
+	COLOR: #333; TEXT-DECORATION: none
+}
+a:visited {
+	COLOR:#333; TEXT-DECORATION: none
+}
+a:hover {
+	COLOR: #f60; TEXT-DECORATION: none
+}
+form{
+	margin: 0px;
+	padding: 0px;
+}
+
+/**系统错误提示类样式开始**/
+#err403{
+	background-image: url(../images/403.png);
+	background-repeat: no-repeat;
+	background-position: 200px 100px;
+	padding-top: 120px;
+	padding-left: 400px;
+	padding-right: 200px;
+	padding-bottom: 200px;
+}
+#err404{
+	background-image: url(../images/404.png);
+	background-repeat: no-repeat;
+	background-position: 200px 100px;
+	padding-top: 120px;
+	padding-left: 400px;
+	padding-right: 200px;
+	padding-bottom: 200px;
+}
+#err500{
+	background-image: url(../images/404.png);
+	background-repeat: no-repeat;
+	background-position: 200px 100px;
+	padding-top: 120px;
+	padding-left: 400px;
+	padding-right: 200px;
+	padding-bottom: 200px;
+}
+#errTitle{
+	font-size: 24px;
+	line-height: 40px;
+	font-weight: bold;
+	color: #F60;
+	font-family: "黑体";
+}
+#errContent{
+	font-size: 14px;
+	line-height: 30px;
+	color: #333;	
+}
+#errCode{
+	font-size: 12px;
+	line-height: 25px;
+	color: #000;
+	margin-top: 20px;
+}
+/**系统错误提示类样式结束**/
+
+
+/* 系统登陆页面样式开始 */
+.loginBodyStyle{
+	background-color: #2074BB;
+	font-size: 14px;
+	line-height: 40px;
+	color: #0D3957;
+}
+.loginPageParentDiv{
+	width: 100%;
+	text-align: center;
+}
+.loginAreaTable{
+	background-image: url(../images/loginAreaBg.jpg);
+	height: 450px;
+	width: 680px;
+	margin-top: 130px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.loginTitle{
+	background-image: url(../images/loginTitlePic.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 200px;
+}
+.loginMsg{
+	font-size: 12px;
+	line-height:20px;
+	color: red;
+	text-align: center;
+	padding: 5px;
+	height: 30px;
+}
+.loginItem{
+	font-size: 14px;
+	color: #000;
+	text-align: center;
+}
+.loginUser{
+	font-size: 12px;
+	color: #333;
+	background-image: url(../images/loginUser.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 50px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 23px;
+	width: 184px;
+}
+.loginPwd{
+	font-size: 12px;
+	color: #333;
+	background-image: url(../images/loginPwd.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 50px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 23px;
+	width: 184px;
+}
+.loginChk{
+	font-size: 12px;
+	color: #333;
+	background-image: url(../images/loginChk.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 23px;
+	width: 117px;
+}
+.loginBtn{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: left;
+	padding-left: 250px;
+}
+
+/* 系统登陆页面样式结束 */
+
+/* 框架主体页面样式开始 */
+#mainHead{
+	text-align: left;
+	margin: 0px;
+	padding: 0px;
+	height: 90px;
+	width: 100%;
+	min-width:1210px;
+	background-color: #2D82CF;
+}
+#mainHead #logoArea{
+	background-image: url(../images/logo.jpg);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	float: left;
+	height: 90px;
+	width: 300px;
+}
+#mainHead #firstGuideArea{
+	height: 90px;
+	width: auto;
+}
+#mainHead #firstGuideArea #turnLeft{
+	float: left;
+	padding-top: 20px;
+	height: 70px;
+	width: 30px;
+	text-align: left;
+	vertical-align: middle;
+}
+#mainHead #firstGuideArea #turnRight{
+	float: right;
+	padding-top: 20px;
+	height: 70px;
+	width: 30px;
+	text-align: right;
+	vertical-align: middle;
+}
+#mainHead #firstGuideArea #firstGuideList{
+	padding: 10px;
+	height:70px;
+	text-align: center;
+}
+.firstGuideObject{
+	float: left;
+	width: auto;
+	text-align: center;
+	margin: 3px;
+	padding: 3px;
+	border: 1px solid #2D82CF;
+	border-radius: 5px;
+}
+.redTip{
+	width:20px;
+	height:20px;
+	border-radius: 100%;
+	position:absolute;
+	z-index:1000;
+	background-color: #F60;
+	font-size: 12px;
+	color: #FFF;
+	margin-top: -5px;
+	margin-left: 40px;
+	text-align: center;
+	vertical-align: middle;	/**border: 1px solid #FFF;**/
+	line-height: 19px;
+}
+.firstGuideObject:hover{
+	float: left;
+	width: auto;
+	text-align: center;
+	border: 1px solid #266CAC;
+	border-radius: 5px;
+	margin: 3px;
+	padding: 3px;
+}
+.firstGuideObjectHot{
+	float: left;
+	width: auto;
+	text-align: center;
+	border: 1px solid #266CAC;
+	border-radius: 5px;
+	margin: 3px;
+	padding: 3px;
+	background-color: #6AA8DF;
+}
+.guidePic{
+	padding-top: 5px;
+}
+.guideTitle{
+	text-align: center;
+	font-size: 12px;
+	height:24px;
+	width:70px;
+	line-height:24px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+.guideTitle a {
+	COLOR: #FFF;
+	TEXT-DECORATION: none;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#mainHead #oneSelfArea{
+	float: right;
+	padding-top: 15px;
+	padding-right: 10px;
+	height: 75px;
+	min-width:300px;
+	font-size: 12px;
+	color: #FFF;
+	text-align: right;
+	line-height: 25px;
+}
+#mainHead #oneSelfArea a{
+	color: #FFF;
+}
+#mainHead #oneSelfArea a:hover{
+	color: #F60;
+}
+
+#mainHead #oneSelfArea #roleArea{
+	clear:both;
+	float: right;
+}
+#mainHead #oneSelfArea #rolesLeft{
+	float: left;
+	background-image: url(../images/chgRoleAreaLeft.jpg);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	height: 26px;
+	width: 15px;
+}
+#mainHead #oneSelfArea #roles{
+	float: left;
+	background-image: url(../images/chgRoleAreaBg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	min-width:190px;
+}
+#mainHead #oneSelfArea #roles .currentRole{
+	float: left;
+	color: #FFF;
+	background-image: url(../images/chgRoleAreaBgHot.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	font-size:12px;
+	height: 26px;
+	padding-right: 8px;
+	padding-left: 8px;	
+}
+#mainHead #oneSelfArea #roles .role{
+	float: left;
+	color: #FFF;
+	background-image: url(../images/chgRoleAreaBg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	font-size:12px;
+	height: 26px;
+	padding-right: 8px;
+	padding-left: 8px;	
+}
+#mainHead #oneSelfArea #roles .normalText{
+	float: left;
+	color: #FFF;
+	background-image: url(../images/chgRoleAreaBg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	font-size:12px;
+	height: 26px;
+	padding-right: 8px;
+	padding-left: 8px;	
+}
+#mainHead #oneSelfArea #rolesRight{
+	float: left;
+	background-image: url(../images/chgRoleAreaRight.jpg);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	height: 26px;
+	width: 15px;
+}
+#mainHead #oneSelfArea #mySettingArea{
+	clear:both;
+	float: right;
+	text-align: right;
+	padding-right: 5px;
+	padding-bottom: 5px;
+}
+#mainHead #oneSelfArea #mySettingArea img{
+	padding-left: 3px;
+	padding-right: 3px;
+}
+/*身份切换 覆盖原有样式*/
+#users{
+	background-color: #1A4D7C;
+	border: none !important;
+	color: #FFF;
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 15px;
+	padding-left: 10px;
+}
+#users a{
+	color: #999 !important;
+}
+#users a:hover{
+	color: #FFF !important;
+}
+#users .curUser{
+	color: #FFF !important;
+	font-weight: bold;
+	padding: 3px;
+	margin-top: 10px;
+	margin-bottom: 2px;		
+}
+#users .agentUser{
+	color: #FFF !important;
+	font-weight: bold;
+	padding: 3px;
+	margin-top: 10px;
+	margin-bottom: 2px;	
+}
+#users .curRole{
+	font-weight: bolder;
+	color: #E65E42 !important;
+	padding-left: 10px;
+}
+#users .normalRole{
+	padding-left: 10px;
+}
+#switch{
+	clear:both !important;
+	border: none !important;
+}
+#switch:hover{
+	clear:both !important;
+	border: none !important;
+}
+.l-btn{
+	border:none !important;
+	background-color:none !important;
+	margin: 0px !important;
+	padding: 0px !important;	
+}
+
+.l-btn:hover {
+	border:none !important;
+    background: #1A4D7C !important;
+	background-color:none !important;
+	margin: 0px !important;
+	padding: 0px !important;	
+	-moz-border-radius: 0px !important;	
+    -webkit-border-radius: 0px !important;	
+    border-radius: 0px !important;
+}
+.m-btn-plain-active{
+	background-color: #1A4D7C !important;
+	margin: 0px !important;
+	padding: 0px !important;	
+	-moz-border-radius: 0px !important;	
+  -webkit-border-radius: 0px !important;	
+  border-radius: 0px !important;	
+}
+.m-btn-plain-active:hover{
+	background-color: #1A4D7C !important;
+	margin: 0px !important;
+	padding: 0px !important;
+	-moz-border-radius: 0px !important;	
+  -webkit-border-radius: 0px !important;	
+  border-radius: 0px !important;	
+}
+
+
+#mainContent{
+	clear:both;
+	background-color: #FFF;
+	border-right-width: 4px;
+	border-left-width: 4px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #2D82CF;
+	border-left-color: #2D82CF;
+	min-width:1200px;
+}
+#mainFoot{
+	font-size: 12px;
+	line-height: 25px;
+	color: #FFF;
+	background-image: url(../images/footerBg.jpg);
+	background-repeat: repeat-x;
+	text-align: center;
+	min-width:1210px;
+}
+
+/* 框架主体页面样式结束 */
+
+/* 左侧菜单页面样式开始 */
+.firstLevelMenuTitle{
+	font-size: 15px;
+	font-weight: bold;
+	color: #FFF;
+	background-image: url(../images/menuTitleBg.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 25px;
+	width: 135px;
+	padding-top: 10px;
+	padding-left: 40px;
+	cursor:pointer;
+}
+.secCloseMenu .meunTitle{
+	font-size: 14px;
+	color: #333;
+	background-image: url(../images/secGuideBg.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 28px;
+	width: 155px;
+	padding-top: 7px;
+	padding-left: 20px;	
+	cursor:pointer;
+}
+.secCloseMenu .meunTitle img{
+	margin-top: -3px;
+}
+.secCloseMenu .menuList{
+	display:none;
+}
+.secOpenMenu .meunTitle{
+	font-size: 14px;
+	color: #000;
+	background-image: url(../images/secGuideBgHot.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 28px;
+	width: 155px;
+	padding-top: 7px;
+	padding-left: 20px;
+	cursor:pointer;
+}
+.secOpenMenu .meunTitle img{
+	margin-top: -3px;
+}
+.secOpenMenu .menuList{
+	width: 158px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #BDD0DB;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #BDD0DB;
+	border-left-color: #BDD0DB;
+	background-color: #FFF;
+}
+.secOpenMenu .menuList li{
+	list-style-type:none;
+	font-size: 12px;
+	color: #333;
+	background-image: url(../images/menuListIcon.png);
+	background-repeat: no-repeat;
+	background-position: 15px center;
+	line-height: 28px;
+	padding-left: 35px;
+	width: 116px;
+	white-space:nowrap;
+	word-break:keep-all;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: 1px solid #fff;
+	border-radius: 3px;
+}
+.secOpenMenu .menuList li span{
+	font-size: 12px;
+	color: #F00;
+	font-weight: bold;
+}
+
+.secOpenMenu .menuList .selected span{
+	font-size: 12px;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.secOpenMenu .menuList li:hover{
+	list-style-type:none;
+	font-size: 12px;
+	color: #F60;
+	background-image: url(../images/menuListIconHot.png);
+	background-repeat: no-repeat;
+	background-position: 15px center;
+	line-height: 28px;
+	padding-left: 35px;
+	width: 116px;
+	white-space:normal; 
+	word-break:break-all;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: 1px dashed #E9735A;
+	border-radius: 3px;
+}
+
+.secOpenMenu .menuList  .selected{
+	list-style-type:none;
+	font-size: 12px;
+	color: #fff !important;
+	background-image: url(../images/menuListIconSelect.png) !important;
+	background-repeat: no-repeat;
+	background-position: 15px center;
+	line-height: 28px;
+	padding-left: 35px;
+	width: 116px;
+	white-space:normal; 
+	word-break:break-all;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	border: 1px solid #E65E42 !important;
+	border-radius: 3px;
+	background-color: #E65E42;
+}
+/* 左侧菜单页面样式结束 */
+
+/*列表表单详细信息页面样式开始*/
+.areaTitle{
+	font-size: 14px;
+	font-weight: normal;
+	color: #000;
+	background-image: url(../images/areaTitleBg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	text-align: left;
+	height: 35px;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #C1D3DE;
+	border-left-color: #C1D3DE;
+}
+.areaTitle .key{
+	float: left;
+	background-image: url(../images/areaTitleIcon.jpg);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	margin-left: 10px;
+	padding-left: 26px;
+	padding-top: 8px;
+}
+.areaTitle .tabHot{
+	float: left;
+	padding-top: 10px;
+	background-image: url(../images/areaTitleBgHot.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 25px;
+	width: 140px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+}
+.areaTitle .tabNormal{
+	float: left;
+	width: 110px;
+	padding-top: 8px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #000;
+	text-align: center;
+}
+.areaTitle .ext{
+	float: right;
+	margin-right: 10px;
+	font-size: 12px;
+	font-weight: normal;
+	padding-top: 8px;
+}
+
+
+.leftAndRightBorderDiv{
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #C1D3DE;
+	border-left-color: #C1D3DE;
+}
+.areaTitleInner{
+	font-size: 12px;
+	font-weight: normal;
+	color: #000;
+	background-image: url(../images/areaTitleInnerBg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	text-align: left;
+	height: 35px;
+}
+.areaTitleInner .tabHot{
+	float: left;
+	padding-top: 10px;
+	background-image: url(../images/areaTitleInnerBgHot.jpg);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	height: 25px;
+	width: 140px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+}
+.areaTitleInner .tabNormal{
+	float: left;
+	width: 110px;
+	padding-top: 10px;
+	font-size: 12px;
+	font-weight: normal;
+	color: #000;
+	text-align: center;
+}
+
+
+.areaMarginContent{
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #C1D3DE;
+	border-left-color: #C1D3DE;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C1D3DE;
+	padding: 15px;
+	min-height:200px;
+}
+.areaContent{
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #C1D3DE;
+	border-left-color: #C1D3DE;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C1D3DE;
+}
+
+.iconTableList th{
+	background-image: url(../images/listNewsIcon.jpg);
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	height: 25px;
+	line-height: 25px;
+	padding-left: 28px;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+}
+.iconTableList td{
+	
+}
+
+.mailTableList th{
+/*	background-image: url(../images/mailIcon.jpg);
+	background-repeat: no-repeat;
+	background-position: 5px center;*/
+	height: 24px;
+	line-height: 24px;
+	padding-left: 30px;
+	font-size: 12px;
+	font-weight: normal;
+	text-align: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #B9CCD6;
+}
+.mailTableList .yesRead{
+    background-image: url(../images/lookedMailIcon.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+}
+.mailTableList .noRead{
+    background-image: url(../images/mailIcon.jpg);
+    background-repeat: no-repeat;
+    background-position: 5px center;
+}
+.mailTableList td{
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #B9CCD6;
+}
+
+
+.calendarTable{
+	background-image: url(../images/calandaBg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 115px;
+	width: 110px;	
+}
+.calendarTable th{
+	font-size: 14px;
+	line-height: 33px;
+	color: #FFF;
+	text-align: center;
+	height: 33px;	
+}
+.calendarTable td{
+	font-size: 50px;
+	color: #F00;
+	text-align: center;
+	height: 82px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+.searchArea{
+	background-color: #FFF;
+	padding: 5px;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #D5E0E8;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FFF;
+}
+.searchAreaSubBtn{
+	cursor:pointer;
+	background-image: url(../images/searchBtn.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 24px;
+	width: 80px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFF;
+}
+.searchAreaSubBtn:hover{
+	cursor:pointer;
+	background-image: url(../images/searchBtnHot.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 24px;
+	width: 80px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFF;
+}
+.searchAreaClosetBtn{
+	background-image: url(../images/turnUp.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 24px;
+	width: 33px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;	
+}
+.searchAreaOpentBtn{
+	background-image: url(../images/turnDown.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 24px;
+	width: 33px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.searchArea th{
+	font-size: 12px;
+	font-weight: normal;
+	color: #333;
+	text-align: right;
+}
+.searchArea .inputDiv{
+	float: left;
+	height: 18px;
+	border: 1px solid #C1D3DE;
+	padding: 2px;
+	/**border-radius: 3px;**/
+	overflow: hidden;
+}
+.searchArea .inputDiv input{
+	height: 18px;
+	width: 150px;
+	border:none 0px !important;
+}
+.searchArea .inputDiv select{
+	height: 18px;
+	line-height:18px;
+	border:none 0px !important;
+	width: 150px;
+}
+.searchArea .inputDiv select option{
+	height: 18px;
+	line-height:18px;
+	text-align: left;
+	vertical-align: middle;
+	width: 140px;
+}
+.searchArea td{
+	font-size: 14px;
+	font-weight: normal;
+	color: #333;
+	text-align: left;
+}
+
+
+.editButtonsArea{
+	/**background-color: #F0F7FB;**/
+	text-align: left;
+	height: 26px;
+	padding-top: 10px;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFF;
+	border-bottom-color: #C1D3DE;
+	padding-left: 13px;
+}
+.editButtonsArea a:link {
+	COLOR: #2478BD;
+	TEXT-DECORATION: none
+}
+.editButtonsArea a:visited {
+	COLOR:#2478BD; TEXT-DECORATION: none
+}
+.editButtonsArea a:hover {
+	COLOR: #f60;
+	TEXT-DECORATION: underline
+}
+.editButtonsArea .look{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/look.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .cope{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/copy.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .add{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/add.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .edit{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/edit.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .delete{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/del.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .delGroup{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/delGroup.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .process{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/process.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .import{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/import.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .export{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/export.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .total{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/total.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .print{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/print.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+.editButtonsArea .assign{
+	float: left;
+	font-size: 14px;
+	line-height: 16px;
+	background-image: url(../images/assign.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	padding-right: 20px;
+	padding-left: 20px;	
+}
+
+.listNews{
+	clear:both;
+}
+.listNewsTable{
+	border-collapse:collapse;
+}
+.listNewsTable thead tr th{
+	background-color: #E8F1F7;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #FFF;
+	border-bottom-color: #D5E0E8;
+	height: 28px;
+}
+.listNewsTable thead tr th .ls-sort{
+	padding-right: 13px;	
+}
+.listNewsTable thead tr th .desc-sort{
+	background-image: url(../images/sortDesc.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 13px;	
+}
+.listNewsTable thead tr th .asc-sort{
+	background-image: url(../images/sortAsc.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding-right: 13px;	
+}
+.listNewsTable tbody tr td{
+	height: 25px;
+	padding-right: 3px;
+	padding-left: 2px;
+	word-break:break-all; 
+	word-wrap:break-word;
+}
+
+.listNewsTable tbody .listEditTd a:link{
+	COLOR: #2478BD; 
+	TEXT-DECORATION: none
+}
+.listNewsTable tbody .listEditTd a:visited {
+	COLOR:#2478BD; 
+	TEXT-DECORATION: none
+}
+.listNewsTable tbody .listEditTd a:hover {
+	COLOR: #f60; 
+	TEXT-DECORATION: underline
+}
+
+.listNewsTable tbody .ls-opt:link {
+	COLOR: #2478BD; 
+	TEXT-DECORATION: none
+}
+.listNewsTable tbody .ls-opt:visited {
+	COLOR:#2478BD; 
+	TEXT-DECORATION: none
+}
+.listNewsTable tbody .ls-opt:hover {
+	COLOR: #f60; 
+	TEXT-DECORATION: underline
+}
+
+.normal1{
+	background-color: #FDFFFF;
+}
+.normal2{
+	background-color: #F5FAFC;	/**background-color: #EFF6FA;**/
+}
+.hot{
+	background-color: #CAE4F9;
+}
+.thStyle1{
+
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	font-weight: bold !important;
+}
+.thStyle2{
+
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	font-weight: bold !important;
+}
+
+.listNewsTable tfoot tr td{
+	font-size: 14px;
+	line-height: 30px;
+	text-align: center;
+	height: 30px;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #D5E0E8;
+}
+
+.tipMsg{
+	color: #F60;
+	padding-right: 10px;
+	padding-left: 10px;	
+}
+.formAreaTitle{
+	font-size: 14px;
+	line-height: 40px;
+	text-align: left;
+	height: 40px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+}
+.formAreaContent{
+	border: 1px solid #C1D3DE;
+	padding: 5px;
+	border-radius: 3px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.formTable{
+	border-collapse:collapse;
+}
+.formTable input{
+	height: 20px;
+	border: 1px solid #C5D6E0;
+}
+.formTable select{
+	border: 1px solid #C5D6E0;
+}
+.formTable select option{
+	line-height:20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.formTable th{
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+	text-align: right;
+	padding-right: 2px;
+	height: 25px;
+}
+.formTable td{
+	padding-left: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;	
+	word-break:break-all; 
+	word-wrap:break-word;
+}
+
+.formSubArea{
+	text-align: center;
+	height: 50px;
+	padding-top: 15px;
+}
+.formSubArea .subBtn{
+	background-image: url(../images/btnBg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 33px;
+	width: 100px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.formSubArea .subBtnHot{
+	background-image: url(../images/btnBgHot.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 33px;
+	width: 100px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	color: #FFF;
+}
+
+.detailAreaTitle{
+	font-size: 14px;
+	text-align: left;
+	height: 40px;
+	padding-top: 20px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+	background-image: url(../images/areaSubTitleIcon.jpg);
+	background-repeat: no-repeat;
+	background-position: left center;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.detailAreaTitle .ext{
+	float:right;
+	padding-top: 10px;
+	padding-right: 2px;
+	font-size: 12px;
+	color: #666;
+}
+
+.detailAreaClosetBtn{
+	background-image: url(../images/closeIcon.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 11px;
+	width: 20px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;	
+}
+.detailAreaOpentBtn{
+	background-image: url(../images/openIcon.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 11px;
+	width: 20px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.detailAreaContent{
+	clear:both;
+	border: 1px solid #C1D3DE;
+	padding: 5px;
+	border-radius: 3px;
+	margin-top: -10px;
+	margin-right: 20px;
+	margin-left: 20px;
+}
+.detailTable{
+	border-collapse:collapse;
+}
+.detailTable a:link {
+	COLOR: #1B5381; TEXT-DECORATION: none
+}
+.detailTable a:visited {
+	COLOR:#971B09; TEXT-DECORATION: none
+}
+.detailTable a:hover {
+	COLOR: #f60;
+	TEXT-DECORATION: underline
+}
+.detailTable th{
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+	text-align: right;
+	padding-right: 2px;
+	height: 25px;
+}
+.detailTable td{
+	padding-left: 3px;
+	line-height: 22px;
+	word-break:break-all; 
+	word-wrap:break-word;
+}
+
+.detailBtnArea{
+	text-align: center;
+	height: 50px;
+	padding-top: 15px;
+}
+.detailBtnArea .subBtn{
+	background-image: url(../images/btnBg.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 33px;
+	width: 100px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+.detailBtnArea .subBtnHot{
+	background-image: url(../images/btnBgHot.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 33px;
+	width: 100px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+}
+
+/*列表表单详细信息页面样式结束*/
+
+#goTopBtn {
+	position: fixed;
+	line-height:36px;
+	width:36px;
+	bottom:35px;
+	height:36px;
+	cursor:pointer;
+	display:none;
+	background:url(../images/back_to_top_white.gif);
+}
+
+/**分页样式PageView.Style.FORE开始**/
+.pageView {
+	display: inline;
+	float: right;
+	height: 30px;
+	margin-right: 5px;
+	position: relative;
+}
+.pageView .items {
+	display: inline;
+	float: left;
+	margin-top: 4px;
+}
+.pageView .items li {
+    border: 1px solid #E1E1E1;
+	border-radius: 2px;
+    color: #3e3e3e;
+    cursor: pointer;
+    display: inline;
+    float: left;
+    height: 20px;
+    line-height: 20px;
+    min-width: 20px;
+    position: relative;
+    text-align: center;
+    transition: color 0.1s linear 0s;
+	margin-left:2px;
+}
+
+
+.pageView .item:hover {
+    border-color: #3691D8;
+    color: #fff;
+    text-decoration: none;
+}
+.pageView .dot {
+    border: 0 none !important;
+    cursor: default;
+    line-height: 20px;
+}
+.pageView .dot:hover {
+    color: #f60;
+    text-decoration: none;
+}
+
+.pageView .active, .pageView .active:hover {
+	border: 1px solid #E1E1E1;
+    background: #3691D8;
+    border-color: #3691D8 !important;
+	border-radius: 2px;
+    cursor: default;
+    position: relative;
+    text-decoration: none;
+}
+.pageView .active a{
+    color: #fff !important;
+}
+
+.pageView .form , .pageView .total {
+    float: left;
+	margin-left:10px;
+}
+
+
+.pageView .form input {
+	border: 1px solid #CCC;
+	border-radius: 2px;
+	height: 18px;
+	text-align: center;
+	min-width: 25px;
+	width: 25px;
+	vertical-align: middle;
+	line-height: 16px;
+	margin-top: -3px;
+	margin-right: 1px;
+	margin-left: 1px;
+}
+.pageView .form .button {
+	border: 0 none;
+	height: 22px;
+	text-align: center;
+	vertical-align: middle;
+	background-image: url(../images/turnPageBtn.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	width: 50px;
+}
+
+/**
+
+.pageView .item .num {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+.pageView .icon {
+    background: url("http://gtms01.alicdn.com/tps/i1/T1ELORFxJhXXb4GxbQ-38-624.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: inline-block;
+    height: 9px;
+    overflow: hidden;
+    width: 6px;
+}
+.pageView .prev, .pageView .next {
+    cursor: pointer;
+    width: 28px;
+}
+.pageView .prev .icon {
+    background-position: -20px -188px;
+}
+.pageView .next .icon {
+    background-position: 0 -188px;
+}
+.pageView .prev:hover .icon {
+    background-position: -20px -208px;
+}
+.pageView .next:hover .icon {
+    background-position: 0 -208px;
+}
+.pageView .prev-disabled, .pageView .prev-disabled:hover {
+    cursor: default;
+}
+.pageView .prev-disabled .icon, .pageView .prev-disabled:hover .icon {
+    background-position: -20px -228px;
+}
+.pageView .prev-disabled:hover {
+    border-color: #ededed;
+}
+.pageView .next-disabled, .pageView .next-disabled:hover {
+    cursor: default;
+}
+.pageView .next-disabled .icon, .pageView .next-disabled:hover .icon {
+    background-position: 0 -228px;
+}
+.pageView .next-disabled:hover {
+    border-color: #ededed;
+}
+.pageView .icon {
+}
+.pageView .prev {
+    margin-left: 0;
+    margin-right: 5px;
+}
+.pageView .next {
+    margin-left: 5px;
+}
+.pageView .total, .pageView .text, .pageView .m-more {
+    float: left;
+    line-height: 39px;
+}
+.pageView .m-more {
+    margin-left: 8px;
+}
+.pageView .total, .pageView .text, .pageView .input, .pageView .button {
+    margin-left: 5px;
+}
+.pageView .input, .pageView .button {
+
+    margin-top: 7px;
+}
+
+**/
+
+/**分页样式PageView.Style.FORE结束**/
+
+/**收发文样式按钮**/
+#newPdWindow .pdtype{
+	font-size: 14px;
+	background-color: #E8F4F9;
+	height: 55px;
+	width: 250px;
+	border: 1px solid #C1D3DF;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: middle;
+	float: left;
+	color: #000;
+	margin-left: 20px;
+	margin-top: 20px;
+	cursor:pointer;
+	padding-top: 35px;
+}
+#newPdWindow div:hover{
+	background-color: #3691D8;
+	border: 1px solid #3691D8;
+	color: #fff;
+}
+#newPdWindow .description{
+	width: 530px !important;
+	height: 25px !important;
+	line-height:25px;
+	background-image: url(../images/listNewsIcon.png);
+	background-repeat: no-repeat;
+	background-position: 520px center;
+	text-align: left;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #E8E8E8;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+#newPdWindow .btn{
+	width: 150px !important;
+	height: 28px !important;
+	padding-top: 10px !important;
+	font-size: 14px;
+	background-color: #E8F4F9;
+	border: 1px solid #C1D3DF;
+	border-radius: 5px;
+	text-align: center;
+	vertical-align: middle;
+	float: right;
+	color: #000;
+	margin-left: 20px;
+	margin-top: 20px;
+	cursor:pointer;
+	padding-top: 32px;
+}

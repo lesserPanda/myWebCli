@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:cache="http://www.springframework.org/schema/cache" xmlns:p="http://www.springframework.org/schema/p"
+	
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-3.2.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache-3.2.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.2.xsd ">
+	
+	<description>核心配置</description>
+
+	
+	<!-- 加载配置文件 -->
+	<!-- 由于spring BUG#https://jira.spring.io/browse/SPR-9989 -->
+	<!-- 如果使用多个context:property-placeholder配置会导致${xx:defaultValue}不能正常的工作 -->
+	<!-- 所以jdbc.properties设置排序2，保证user.properties及webapp.properties优先加载, 保证默认值的正常使用 -->
+	<context:property-placeholder location="classpath:conf/jdbc.properties" ignore-unresolvable="true" order="2"/>
+	
+	<!-- C3PO连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		  p:driver-class="${jdbc.driverClassName}"
+		  p:jdbc-url="${jdbc.url}"
+		  p:user="${jdbc.username}"
+		  p:password="${jdbc.password}"
+			
+		  p:auto-commit-on-close="true"
+		  p:checkout-timeout="${cpool.checkoutTimeout:0}"
+		  p:initial-pool-size="${cpool.minPoolSize:10}"
+		  p:min-pool-size="${cpool.minPoolSize:10}"
+		  p:max-pool-size="${cpool.maxPoolSize:50}"
+		  p:max-idle-time="${cpool.maxIdleTime:7200}"
+		  p:max-idle-time-excess-connections="${cpool.maxIdleTimeExcessConnections:1800}"
+		  p:acquire-increment="${cpool.acquireIncrement:5}"
+		  p:max-statements="${cpool.maxStatements:0}"
+		  p:max-statements-per-connection="${cpool.maxStatementsPerConnection:0}"
+		  p:num-helper-threads="${cpool.numHelperThreads:3}"
+		  p:test-connection-on-checkin="${cpool.testConnectionOnCheckin:true}"
+		  p:idle-connection-test-period="${cpool.idleConnectionTestPeriod:60}"
+	/>
+	
+	<!-- Mybatis配置 -->
+	<bean id="sqlSessionFactory" class="net.tuxun.core.mybatis.MybatisSessionFactoryBean"
+		  p:data-source-ref="dataSource"
+		  p:type-aliases-package="net.tuxun.component.**.bean, com.lesserPanda.module.**.bean">
+     	<property name="typeHandlers">
+	    	<!-- <array><bean class="net.tuxun.core.mybatis.typehandler.StringArrayTypeHandler"/></array> -->
+	    	<bean class="net.tuxun.core.mybatis.typehandler.StringArrayTypeHandler"/>
+	    </property>
+	   	<property name="plugins">
+	    	<!-- <array> -->
+	        	<bean class="net.tuxun.core.mybatis.plugin.PageInterceptor">
+	        		<property name="properties">
+	        			<value>
+		        			dialect=${jdbc.dialect}
+	        			</value>
+			        </property>
+	        	</bean>
+	    	<!-- </array> -->
+	   	</property>
+	</bean>
+
+	<!-- 自动描述注入dao --> 
+	<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer"
+		  p:sql-session-factory-bean-name="sqlSessionFactory"
+		  p:base-package="net.tuxun.component.**.dao, com.lesserPanda.module.*.dao"/>
+	
+	<!-- 事务管理 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
+  		  p:data-source-ref="dataSource"
+		  p:global-rollback-on-participation-failure="false"/>
+	
+	<!-- 提供事务管理注解支持 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/> 
+	
+	
+	<!-- 保证@Value注解形式调用 -->
+	<context:property-placeholder properties-ref="conf" ignore-unresolvable="true" order="1"/>
+	<!-- 加载webapp.properties, user.properties -->
+	<bean id="conf" class="net.tuxun.core.util.PropertyUtil" p:fileEncoding="UTF-8">
+		<property name="locations">
+        	<list>  
+        		<value>classpath:conf/user.properties</value>  
+	            <value>classpath:conf/webapp.properties</value>  
+            </list>  
+        </property> 
+	</bean>
+
+	<!-- 开启对AspectJ切面框架的支持 -->
+	<aop:aspectj-autoproxy />
+	
+	<!-- 开启调度任务@Scheduled、异步方法@Async -->
+	<task:annotation-driven />
+	
+	<!-- 自动扫描装配组件 -->
+	<context:component-scan base-package="net.tuxun.core, net.tuxun.component, com.lesserPanda">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+
+	<!-- 加载组件菜单及权限操作 -->
+	<bean id="menuService" class="net.tuxun.component.config.service.impl.MenuServiceImpl"
+		  p:perms-locations="classpath*:conf/*/menus-*.xml"
+		  p:menu-config-location="classpath*:conf/*/menusConfig*.xml"/>	
+		
+	<!-- 开启注解缓存, Spring整合Ehcache -->
+	<cache:annotation-driven cache-manager="ehCacheManager"/> 
+	
+	<!-- 定义一个默认的缓存区(name=cacheBuild), 由程序CacheUtil调用 -->
+	<bean id="cacheBuild" class="org.springframework.cache.ehcache.EhCacheFactoryBean"
+		  p:cache-name="cache-build"
+		  p:cache-manager-ref="ehcache"/>
+	
+	<!-- 将ehcache的缓存管理器交给spring管理 -->  
+	<bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager" 
+		  p:cache-manager-ref="ehcache"/>
+	
+	<!-- Ehcache的缓存管理器 -->
+	<bean id="ehcache" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean" 
+	      p:config-location="classpath:ehcache-build.xml"/>
+
+</beans>

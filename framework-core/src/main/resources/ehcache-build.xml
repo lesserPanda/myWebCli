@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="ehcache-build">
+	<!-- 缓存文件的路径 -->
+	<diskStore path="user.dir/com.lesserPanda/build" />
+	
+	<!-- 默认配置 -->
+	<!-- maxEntriesLocalHeap 本地内存缓存的最大数量 -->
+	<!-- eternal 缓存是永久的 -->
+	<!-- timeToIdleSeconds 缓存对象闲置时间，默认0表示永久 -->
+	<!-- timeToLiveSeconds 缓存对象的存活时间，默认0表示永久 -->
+	<!-- maxEntriesLocalDisk 在磁盘上最大缓存对象的数量 -->
+	<!-- memoryStoreEvictionPolicy 缓存清理规则，默认LRU表示最近使用次数最少的 -->
+	<!-- diskSpoolBufferSizeMB 磁盘缓冲区的大小，默认30M -->
+	<!-- diskExpiryThreadIntervalSeconds 检查缓存对象的是否过期的线程执行时间间隔，默认120秒 -->
+	<defaultCache
+            maxEntriesLocalHeap="10000"
+            eternal="true"
+            maxEntriesLocalDisk="0"
+            memoryStoreEvictionPolicy="LRU"
+            diskSpoolBufferSizeMB="30"
+            diskExpiryThreadIntervalSeconds="120">
+        <persistence strategy="localTempSwap"/>
+    </defaultCache>
+    
+    <!-- 用户自定义缓存设置 -->
+   	<!-- name 认证缓存区名称 -->
+   	<!-- maxEntriesLocalHeap 内存中最多存2000个数量 -->
+   	<!-- eternal 是否开启永久缓存 -->
+    <cache 
+    	name="cache-build"  
+    	maxEntriesLocalHeap="2000" 
+    	eternal="true">
+    	<persistence strategy="localTempSwap"/>
+    </cache>
+    	
+</ehcache>

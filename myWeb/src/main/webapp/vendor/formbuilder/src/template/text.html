@@ -1,0 +1,192 @@
+<!-- 单行文本 -->
+<div class="fb-edit-field-wrapper">
+	<div class="fb-field-label">
+	  <span>{{field.comments}}</span>
+	  <code class="field-type">{{field.uitype}}</code>
+	</div>
+	<div class="fb-edit-section-header">基本设置</div>
+	<div class="fb-common-wrapper">
+		<div class="fb-label-description">
+			<input v-model="field.name" placeholder="字段名称" /> <input
+				v-model="field.comments" placeholder="字段标签" />
+			<textarea v-model="field.description" placeholder="这里添加信息提示信息"></textarea>
+
+			<div class="fb-common-checkboxes">
+				<label> <input type="checkbox" v-model="field.require" />必需输入
+				</label> <label> <input type="checkbox" v-model="field.search" />字段查询
+				</label> <label> <input type="checkbox" v-model="field.inlist" />字段列表
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="fb-edit-section-header">文本框长度设置</div>
+	<input v-model="field.size" size="6"/>
+	<div class="fb-edit-section-header">字符范围设置</div>
+	最小值<input v-model="field.min" size="6"/>
+	最大值<input v-model="field.max" size="6"/>
+</div>
+<div class="fb-field-wrapper" data-field-type="{{field.uitype}}" v-draggable>
+	<div class="cover"></div>
+	<input name="{{field.name}}" size="{{field.size}}"> 
+	<span class="help-block">{{field.description}}</span>
+</div>
+
+
+<!-- 多行文本 -->
+<div class="fb-edit-field-wrapper">
+	<div class="fb-field-label">
+	  <span>{{field.comments}}</span>
+	  <code class="field-type">{{field.uitype}}</code>
+	</div>
+	<div class="fb-edit-section-header">基本设置</div>
+	<div class="fb-common-wrapper">
+	  <div class="fb-label-description">
+	    <input v-model="field.name" placeholder="字段名称"/>
+	    <input v-model="field.comments" placeholder="字段标签"/>
+		<textarea v-model="field.description" placeholder="这里添加信息提示信息" ></textarea>
+	  </div>
+	</div>
+	<div class="fb-edit-section-header">宽高设置</div>
+	宽度<input v-model="field.cols" size="6"/>
+	高度<input v-model="field.rows" size="6"/>
+	<div class="fb-edit-section-header">字符范围设置</div>
+	最小值<input v-model="field.min" size="6"/>
+	最大值<input v-model="field.max" size="6"/>
+</div>
+<div class="fb-field-wrapper" data-field-type="{{field.uitype}}" v-draggable>
+	<div class="cover"></div>
+	<textarea rows="{{field.rows}}" cols="{{field.cols}}" name="{{field.name}}"></textarea>
+	<span class="help-block">{{field.description}}</span>
+</div>
+
+<!-- 单选框 -->
+<div class="fb-edit-field-wrapper">
+	<div class="fb-field-label">
+	  <span>{{field.comments}}</span>
+	  <code class="field-type">{{field.uitype}}</code>
+	</div>
+	<div class="fb-edit-section-header">基本设置</div>
+	<div class="fb-common-wrapper">
+	  <div class="fb-label-description">
+	    <input v-model="field.name" placeholder="字段名称"/>
+	    <input v-model="field.comments" placeholder="字段标签"/>
+		<textarea v-model="field.description" placeholder="这里添加信息提示信息" ></textarea>
+	  </div>
+	</div>
+	<div class="fb-edit-section-header">选项</div>
+	<div class="option" v-repeat="field.options">
+	  <input type="checkbox" class="js-default-updated" v-model="checked">
+	  <input type="text" class="option-label-input" v-model="label">
+	  <a title="添加选项" class="js-add-option fb-button"><i class="fa fa-plus-circle"></i></a>
+	  <a title="删除选项" class="js-remove-option fb-button"><i class="fa fa-minus-circle"></i></a>
+	</div>
+	<div class="fb-bottom-add">
+	  <a class="js-add-option fb-button">添加选项</a>
+	</div>
+</div>
+<div class="fb-field-wrapper" data-field-type="{{field.uitype}}" v-draggable>
+	<div class="cover"></div>
+	<div v-repeat="field.options">
+	    <label class="fb-option">
+	      <input type="radio" checked="{{checked}}" name="{{field.name}}">{{label}}
+	    </label>
+  	</div>
+	<span class="help-block">{{field.description}}</span>
+</div>
+
+
+<div class="fb-common-checkboxes">
+	<label><input type="checkbox" v-model="field.require" />必需输入</label>
+	<label><input type="checkbox" v-model="field.search" />字段查询</label>
+	<label><input type="checkbox" v-model="field.inlist" />字段列表</label>
+</div>
+
+
+
+<div class="fb-field-wrapper" data-field-type="{{field.uitype}}" v-draggable>
+	<div class="cover"></div>
+	<select name="{{field.name}}" multiple="{{multiple}}">
+		<option v-repeat="field.options" value="{{label}}" selected={{selected}}>{{label}}</option>		
+	</select>
+	<span class="help-block">{{field.description}}</span>
+</div>
+
+<!-- time -->
+<!-- 单行文本 -->
+<div class="fb-edit-field-wrapper">
+	<div class="fb-field-label">
+	  <span>{{field.comments}}</span>
+	  <code class="field-type">{{field.uitype}}</code>
+	</div>
+	<div class="fb-edit-section-header">基本设置</div>
+	<div class="fb-common-wrapper">
+		<div class="fb-label-description">
+			<input v-model="field.name" placeholder="字段名称" /> <input
+				v-model="field.comments" placeholder="字段标签" />
+			<textarea v-model="field.description" placeholder="这里添加信息提示信息"></textarea>
+
+			<div class="fb-common-checkboxes">
+				<label> <input type="checkbox" v-model="field.require" />必需输入
+				</label> <label> <input type="checkbox" v-model="field.search" />字段查询
+				</label> <label> <input type="checkbox" v-model="field.inlist" />字段列表
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="fb-edit-section-header">文本框长度设置</div>
+	<input v-model="field.size" size="6"/>
+	<div class="fb-edit-section-header">时间格式设置</div>
+	<input v-model="field.format" size="10"/>
+	<select v-on="change: format">
+		<option>时间格式</option>
+		<option>yyyy-MM-dd</option>
+		<option>yyyy-MM-dd HH:mm</option>
+		<option>yyyy-MM-dd HH:mm:ss</option>
+	</select>
+</div>
+
+
+<!-- number -->
+<div class="fb-edit-field-wrapper">
+	<div class="fb-field-label">
+	  <span>{{field.comments}}</span>
+	  <code class="field-type">{{field.uitype}}</code>
+	</div>
+	<div class="fb-edit-section-header">基本设置</div>
+	<div class="fb-common-wrapper">
+		<div class="fb-label-description">
+			<input v-model="field.name" placeholder="字段名称" /> <input
+				v-model="field.comments" placeholder="字段标签" />
+			<textarea v-model="field.description" placeholder="这里添加信息提示信息"></textarea>
+
+			<div class="fb-common-checkboxes">
+				<label> <input type="checkbox" v-model="field.require" />必需输入
+				</label> <label> <input type="checkbox" v-model="field.search" />字段查询
+				</label> <label> <input type="checkbox" v-model="field.inlist" />字段列表
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="fb-edit-section-header">文本框长度设置</div>
+	<input v-model="field.size" size="6"/>
+	<div class="fb-edit-section-header">数字范围设置</div>
+	最小值<input v-model="field.min" size="6"/>
+	最大值<input v-model="field.max" size="6"/>
+	尾数<input v-model="field.digit" size="6"/>
+	<select v-mode="field.style">
+		<option value="editor">完整的</option>
+		<option value="editor-basic">简单的</option>
+	</select>
+</div>
+
+
+
+<div class="fb-field-wrapper" data-field-type="{{field.uitype}}" v-draggable>
+	<div class="cover"></div>
+	<textarea name="{{field.name}}" style="width:{{field.width}}px;height:{{field.height}}px;" class="editor"/>
+	<span class="help-block">{{field.description}}</span>
+</div>
+
+	<div class="fb-edit-section-header">大小设置</div>
+	宽度<input v-model="field.width" size="6"/>px&nbsp;
+	高度<input v-model="field.height" size="6"/>px

@@ -1,0 +1,146 @@
+.calendar{
+	width: 455px !important;
+	border: 1px solid #C1D3DE !important;
+	padding: 0px !important;
+	height: 453px !important;
+}
+.calendar-header{
+	background-color: #F7FBFE !important;
+	background-image: none;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #C1D3DE;
+	height: 30px !important;
+}
+.calendar-title span{
+	font-family: "微软雅黑";
+	color: #000 !important;
+	font-size: 14px !important;
+	margin-top: 3px;
+}
+
+.calendar-menu-month{
+	height: 100px !important;
+}
+
+.calendar-body{
+	padding: 1px !important;
+	height: 420px !important;
+}
+.calendar-dtable{
+	
+}
+.calendar-dtable thead th{
+	color: #333;
+	height: 40px;
+	background-color: #FFF;
+	font-weight: normal;
+	font-size: 12px;
+}
+.calendar-dtable tbody td{
+	height: 60px;
+}
+.calendar-day{
+
+}
+.calendar-saturday{
+	color: #7FA801 !important;
+}
+.calendar-selected{
+	height: 60px !important;
+}
+.calendar-hover{
+	color: #333 !important;
+	height: 60px !important;
+}
+
+/**包裹的div**/
+.op-calendar-new-relative{
+ 	position: relative;
+	height: 60px;
+  	width: 100%;
+	display:block
+}
+
+/*休*/
+.op-calendar-holiday {
+	color: #fff;
+	display: block;
+	height: 15px;
+	left: 0;
+	font-size:12px;
+	line-height: 14px;
+	overflow: hidden;
+	position: absolute;
+	text-align: left;
+	text-indent: 1px;
+	top: 0;
+	width: 15px;
+	border-radius: 4px;
+	background-attachment: scroll;
+	background-color: #698C00;
+	background-image: none;
+	background-repeat: repeat;
+	background-position: 0 0;
+}
+
+/*班*/
+.op-calendar-work {
+    background: none repeat scroll 0 0 #333;
+    color: #fff;
+    display: block;
+    height: 15px;
+    left: 0;
+	font-size:12px;
+    line-height: 14px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    text-indent: 1px;
+    top: 0;
+    width: 15px;
+	border-radius: 4px;
+}
+
+/*办*/
+.op-calendar-doc {
+	float: right;   
+	background: none repeat scroll 0 0 #D53C1C;
+    color: #fff;
+    display: block;
+    height: 15px;
+    right: 0;
+	font-size:12px;
+    line-height: 14px;
+    overflow: hidden;
+    position: absolute;
+    text-align: left;
+    text-indent: 1px;
+    top: 0;
+    width: auto;
+	border-radius: 4px; 
+}
+
+/*公历日期*/
+.op-calendar-number {
+	display:block;
+	width:40px;
+	font-family: "微软雅黑";
+	font-size: 14px;
+	font-weight: bold;
+	padding: 10px;
+}
+
+/*节日信息，包括公历及阴历节日*/
+.op-calendar-almanac{
+	width: 50px;
+	padding-right: 5px;
+	padding-left: 5px;
+	white-space:nowrap;
+	word-break:keep-all;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	font-size: 12px;
+	font-weight: normal;
+	color: #666;
+}

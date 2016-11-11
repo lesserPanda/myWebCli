@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.tuxun.customer.module.myWeb.dao.ICmsCommentDao">
+	
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+	
+	<resultMap id="CmsCommentMap" type="CmsComment">
+		<id property="id" column="ID" jdbcType="NVARCHAR"/>
+		<result property="articleId" column="ARTICLE_ID" jdbcType="VARCHAR"/>
+		<result property="title" column="TITLE" jdbcType="VARCHAR"/>
+		<result property="content" column="CONTENT" jdbcType="VARCHAR"/>
+		<result property="name" column="NAME" jdbcType="VARCHAR"/>
+		<result property="ip" column="IP" jdbcType="VARCHAR"/>
+		<result property="createDate" column="CREATE_DATE" jdbcType="DATE"/>
+		<result property="robackName" column="ROBACK_NAME" jdbcType="VARCHAR"/>
+		<result property="robackCreateDate" column="ROBACK_CREATE_DATE" jdbcType="DATE"/>
+		<result property="auditUserId" column="AUDIT_USER_ID" jdbcType="VARCHAR"/>
+		<result property="auditDate" column="AUDIT_DATE" jdbcType="DATE"/>
+		<result property="delFlag" column="DEL_FLAG" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="select" resultMap="CmsCommentMap" parameterType="string">
+		SELECT
+			*
+		FROM
+			CMS_COMMENT 
+		WHERE 
+			ID=#{id} 
+	</select>
+	
+	<insert id="insert" parameterType="CmsComment">
+		INSERT INTO CMS_COMMENT  (
+			ID,
+			ARTICLE_ID,
+			TITLE,
+			CONTENT,
+			NAME,
+			IP,
+			CREATE_DATE,
+			ROBACK_NAME,
+			ROBACK_CREATE_DATE,
+			AUDIT_USER_ID,
+			AUDIT_DATE,
+			DEL_FLAG
+		) VALUES (
+			#{id, jdbcType=VARCHAR},
+			#{articleId, jdbcType=VARCHAR},
+			#{title, jdbcType=VARCHAR},
+			#{content, jdbcType=VARCHAR},
+			#{name, jdbcType=VARCHAR},
+			#{ip, jdbcType=VARCHAR},
+			#{createDate, jdbcType=DATE},
+			#{robackName, jdbcType=VARCHAR},
+			#{robackCreateDate, jdbcType=DATE},
+			#{auditUserId, jdbcType=VARCHAR},
+			#{auditDate, jdbcType=DATE},
+			#{delFlag, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="update" parameterType="CmsComment">
+		UPDATE 
+			CMS_COMMENT  
+		SET
+			ID = #{id, jdbcType=VARCHAR},
+			ARTICLE_ID = #{articleId, jdbcType=VARCHAR},
+			TITLE = #{title, jdbcType=VARCHAR},
+			CONTENT = #{content, jdbcType=VARCHAR},
+			NAME = #{name, jdbcType=VARCHAR},
+			IP = #{ip, jdbcType=VARCHAR},
+			CREATE_DATE = #{createDate, jdbcType=DATE},
+			ROBACK_NAME = #{robackName, jdbcType=VARCHAR},
+			ROBACK_CREATE_DATE = #{robackCreateDate, jdbcType=DATE},
+			AUDIT_USER_ID = #{auditUserId, jdbcType=VARCHAR},
+			AUDIT_DATE = #{auditDate, jdbcType=DATE},
+			DEL_FLAG = #{delFlag, jdbcType=VARCHAR}
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<update id="updateNotNull" parameterType="CmsComment">
+		UPDATE 
+			CMS_COMMENT  
+		<set>
+			<if test="id != null">
+				ID = #{id},
+			</if>
+			<if test="articleId != null">
+				ARTICLE_ID = #{articleId},
+			</if>
+			<if test="title != null">
+				TITLE = #{title},
+			</if>
+			<if test="content != null">
+				CONTENT = #{content},
+			</if>
+			<if test="name != null">
+				NAME = #{name},
+			</if>
+			<if test="ip != null">
+				IP = #{ip},
+			</if>
+			<if test="createDate != null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="robackName != null">
+				ROBACK_NAME = #{robackName},
+			</if>
+			<if test="robackCreateDate != null">
+				ROBACK_CREATE_DATE = #{robackCreateDate},
+			</if>
+			<if test="auditUserId != null">
+				AUDIT_USER_ID = #{auditUserId},
+			</if>
+			<if test="auditDate != null">
+				AUDIT_DATE = #{auditDate},
+			</if>
+			<if test="delFlag != null">
+				DEL_FLAG = #{delFlag}
+			</if>
+		</set>
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		DELETE FROM 
+			CMS_COMMENT 
+		<where>
+			<foreach item="item" collection="_parameter.split(',')">
+				OR ID = #{item}
+			</foreach>
+		</where> 
+	</delete>
+	
+	<delete id="deleteByPrimaryTableId">
+		DELETE FROM 
+			CMS_COMMENT
+		WHERE
+			ARTICLE_ID = #{primaryTableId}
+	</delete>
+	
+	<select id="listByPrimaryTableId" resultMap="CmsCommentMap">
+		SELECT
+			*
+		FROM
+			CMS_COMMENT
+		WHERE 
+			ARTICLE_ID = #{id}
+	</select>
+</mapper>

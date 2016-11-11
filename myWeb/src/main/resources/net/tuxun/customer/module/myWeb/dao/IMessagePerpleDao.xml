@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.tuxun.customer.module.myWeb.dao.IMessagePerpleDao">
+	
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+	
+	<resultMap id="MessagePerpleMap" type="MessagePerple">
+		<id property="id" column="ID" jdbcType="NVARCHAR"/>
+		<result property="messagePerple" column="MESSAGE_PERPLE" jdbcType="VARCHAR"/>
+		<result property="messageEmail" column="MESSAGE_EMAIL" jdbcType="VARCHAR"/>
+		<result property="messagePerpleIp" column="MESSAGE_PERPLE_IP" jdbcType="VARCHAR"/>
+		<result property="createTime" column="CREATE_TIME" jdbcType="VARCHAR"/>
+		<result property="messageContent" column="MESSAGE_CONTENT" jdbcType="VARCHAR"/>
+		<result property="messageTitle" column="MESSAGE_TITLE" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="select" resultMap="MessagePerpleMap" parameterType="string">
+		SELECT
+			*
+		FROM
+			MESSAGE_PERPLE 
+		WHERE 
+			ID=#{id} 
+	</select>
+	
+	<insert id="insert" parameterType="MessagePerple">
+		INSERT INTO MESSAGE_PERPLE  (
+			ID,
+			MESSAGE_PERPLE,
+			MESSAGE_EMAIL,
+			MESSAGE_PERPLE_IP,
+			CREATE_TIME,
+			MESSAGE_CONTENT,
+			MESSAGE_TITLE
+		) VALUES (
+			#{id, jdbcType=VARCHAR},
+			#{messagePerple, jdbcType=VARCHAR},
+			#{messageEmail, jdbcType=VARCHAR},
+			#{messagePerpleIp, jdbcType=VARCHAR},
+			#{createTime, jdbcType=VARCHAR},
+			#{messageContent, jdbcType=VARCHAR},
+			#{messageTitle, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="update" parameterType="MessagePerple">
+		UPDATE 
+			MESSAGE_PERPLE  
+		SET
+			ID = #{id, jdbcType=VARCHAR},
+			MESSAGE_PERPLE = #{messagePerple, jdbcType=VARCHAR},
+			MESSAGE_EMAIL = #{messageEmail, jdbcType=VARCHAR},
+			MESSAGE_PERPLE_IP = #{messagePerpleIp, jdbcType=VARCHAR},
+			CREATE_TIME = #{createTime, jdbcType=VARCHAR},
+			MESSAGE_CONTENT = #{messageContent, jdbcType=VARCHAR},
+			MESSAGE_TITLE = #{messageTitle, jdbcType=VARCHAR}
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<update id="updateNotNull" parameterType="MessagePerple">
+		UPDATE 
+			MESSAGE_PERPLE  
+		<set>
+			<if test="id != null">
+				ID = #{id},
+			</if>
+			<if test="messagePerple != null">
+				MESSAGE_PERPLE = #{messagePerple},
+			</if>
+			<if test="messageEmail != null">
+				MESSAGE_EMAIL = #{messageEmail},
+			</if>
+			<if test="messagePerpleIp != null">
+				MESSAGE_PERPLE_IP = #{messagePerpleIp},
+			</if>
+			<if test="createTime != null">
+				CREATE_TIME = #{createTime},
+			</if>
+			<if test="messageContent != null">
+				MESSAGE_CONTENT = #{messageContent},
+			</if>
+			<if test="messageTitle != null">
+				MESSAGE_TITLE = #{messageTitle}
+			</if>
+		</set>
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		DELETE FROM 
+			MESSAGE_PERPLE 
+		<where>
+			<foreach item="item" collection="_parameter.split(',')">
+				OR ID = #{item}
+			</foreach>
+		</where> 
+	</delete>
+
+	<select id="listPage" resultType="MessagePerple">
+		SELECT 
+			ID AS id,
+			MESSAGE_PERPLE AS messagePerple ,
+			MESSAGE_EMAIL AS messageEmail ,
+			MESSAGE_PERPLE_IP AS messagePerpleIp ,
+			CREATE_TIME AS createTime ,
+			MESSAGE_TITLE AS messageTitle 
+		FROM 
+			MESSAGE_PERPLE  
+		<where>
+			<if test="search.messagePerple != null and search.messagePerple != '' ">
+				AND message_perple = #{search.messagePerple}
+			</if>
+			<if test="search.createTime != null and search.createTime != '' ">
+				AND create_time = #{search.createTime}
+			</if>
+		</where>
+		<if test="collates != null and collates.size > 0">
+		<foreach item="item" collection="collates" 
+                        open="ORDER BY" separator=",">
+                ${item.sortField} ${item.sortType}
+           </foreach>
+		</if>
+	</select>
+</mapper>

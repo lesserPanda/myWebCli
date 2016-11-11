@@ -1,0 +1,6 @@
+@charset "UTF-8";
+/* CSS Document */
+.slue{
+	width:150px;height:24px;line-height:24px; font-size:12px;    
+color:#6699ff;overflow:hidden;text-overflow:ellipsis; 
+}

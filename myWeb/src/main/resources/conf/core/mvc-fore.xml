@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd"
+	default-lazy-init="true">
+	
+	<!-- 注册注解相关的特性 -->
+	<mvc:annotation-driven/>
+	
+	<!-- 静态资源 -->
+	<mvc:resources mapping="/attached/**"  location="/attached/" cache-period="31556926"/>
+	<mvc:resources mapping="/back/**"  location="/back/styles/blue_menu_top_standard/" cache-period="31556926"/> 
+	<mvc:resources mapping="/editor/**"  location="/editor/" cache-period="31556926"/>
+	<mvc:resources mapping="/vendor/**"  location="/vendor/" cache-period="31556926"/>
+	<mvc:resources mapping="/myWeb/**"  location="/myWeb/" cache-period="31556926"/>  
+	<mvc:resources mapping="/fore/**"  location="/fore/styles/1/" cache-period="31556926"/>
+	<mvc:resources mapping="/music/**"  location="/music/" cache-period="31556926"/> 
+	
+	
+	<!-- 自动扫描装配组件(只扫描@Controller) 代替了　<context:annotation-config/>　-->
+	<context:component-scan base-package="net.tuxun.component.*.web, net.tuxun.customer.module.*.web">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+	
+	<!-- 视图解释 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	   <property name="prefix" value="/WEB-INF/fore/" />
+	   <property name="suffix" value=".jsp" />
+	</bean>	
+	
+	<!-- 异常处理 -->
+	<bean class="net.tuxun.component.admin.shiro.exception.ExceptionHandler">
+		<property name="order" value="-2147483648"></property>
+		<property name="exceptionMappings">
+			<props>
+				<prop key="net.tuxun.core.security.GlobalException">/errors/exception</prop>
+			</props>
+		</property>
+	</bean>	
+	
+</beans>

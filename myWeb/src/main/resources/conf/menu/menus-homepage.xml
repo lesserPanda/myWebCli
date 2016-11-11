@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menus>
+	<menu sort="0" key="homepage:menu:top" name="首页"  img="guide1.png">
+		<menu sort="0" key="homepage:menu:left" name="欢迎使用" >
+			<menu sort="0" key="homepage:menu:xtsy" name="系统首页" img="homepage.png">
+				<menu sort="1" key="admin:back:system" name="系统信息" url="/back/system.do"/>
+			</menu>
+		</menu>
+	</menu>
+</menus>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+	default-autowire="byName">
+
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<!-- 注入登录的用户信息 -->
+			<bean class="net.tuxun.component.admin.resolver.UserInfoParamResolver" />
+			<!-- 参数封装成list,可用list[n]代替 -->
+        	<bean class="net.tuxun.core.resolver.ListMethodArgumentResolver"/>
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+	
+	<!-- 自动扫描装配组件(只扫描@Controller) 代替了　<context:annotation-config/>　-->
+	<context:component-scan base-package="net.tuxun.component.*.controller, com.lesserPanda.module.*.controller">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+	
+    <!-- list的记忆功能 -->
+    <mvc:interceptors>
+    	<mvc:interceptor>
+    		 <mvc:mapping path="/**/*list*.do"/>
+     		 <bean class="net.tuxun.core.security.ListUrlInterceptor" />
+    	</mvc:interceptor>
+    </mvc:interceptors>
+	
+	<!-- AOP式方法级权限检查  -->
+	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor"/>
+	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+    	<property name="securityManager" ref="securityManager"/>
+	</bean>
+	
+	<!-- 视图解释 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	   <property name="prefix" value="/WEB-INF/back/"/>
+	   <property name="suffix" value=".jsp" />	 
+	   <property name="exposedContextBeanNames">
+	        <list><value>conf</value></list>
+	    </property> 
+	</bean>	
+	  
+	<!-- 异常处理 -->
+	<bean class="net.tuxun.component.admin.shiro.exception.ExceptionHandler">
+		<property name="order" value="0"/>
+		<property name="exceptionMappings">
+			<props>
+				<!-- 这里扩展自定义的异常，跳转到相应的视图去 -->
+				<!-- 例如超时异常，无权限异常，验证异常等 -->
+				<prop key="net.tuxun.component.admin.shiro.exception.RelevantExcetion">/login</prop>
+				<prop key="org.apache.shiro.authz.AuthorizationException">/errors/403</prop>
+				<prop key="net.tuxun.core.security.GlobalException">/errors/exception</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- 支持上传文件 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+</beans>

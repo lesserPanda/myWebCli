@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.tuxun.customer.module.myWeb.dao.IMusicInfoDao">
+	
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+	
+	<resultMap id="MusicInfoMap" type="MusicInfo">
+		<id property="id" column="ID" jdbcType="NVARCHAR"/>
+		<result property="musicName" column="MUSIC_NAME" jdbcType="VARCHAR"/>
+		<result property="musicAuthor" column="MUSIC_AUTHOR" jdbcType="VARCHAR"/>
+		<result property="musicSrc" column="MUSIC_SRC" jdbcType="VARCHAR"/>
+		<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR"/>
+		<result property="createDate" column="CREATE_DATE" jdbcType="VARCHAR"/>
+		<result property="updateBy" column="UPDATE_BY" jdbcType="VARCHAR"/>
+		<result property="updateDate" column="UPDATE_DATE" jdbcType="VARCHAR"/>
+		<result property="remarks" column="REMARKS" jdbcType="VARCHAR"/>
+		<result property="delFlag" column="DEL_FLAG" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="select" resultMap="MusicInfoMap" parameterType="string">
+		SELECT
+			*
+		FROM
+			MUSIC_INFO 
+		WHERE 
+			ID=#{id} 
+	</select>
+	
+	<insert id="insert" parameterType="MusicInfo">
+		INSERT INTO MUSIC_INFO  (
+			ID,
+			MUSIC_NAME,
+			MUSIC_AUTHOR,
+			MUSIC_SRC,
+			CREATE_BY,
+			CREATE_DATE,
+			UPDATE_BY,
+			UPDATE_DATE,
+			REMARKS,
+			DEL_FLAG
+		) VALUES (
+			#{id, jdbcType=VARCHAR},
+			#{musicName, jdbcType=VARCHAR},
+			#{musicAuthor, jdbcType=VARCHAR},
+			#{musicSrc, jdbcType=VARCHAR},
+			#{createBy, jdbcType=VARCHAR},
+			#{createDate, jdbcType=VARCHAR},
+			#{updateBy, jdbcType=VARCHAR},
+			#{updateDate, jdbcType=VARCHAR},
+			#{remarks, jdbcType=VARCHAR},
+			#{delFlag, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="update" parameterType="MusicInfo">
+		UPDATE 
+			MUSIC_INFO  
+		SET
+			ID = #{id, jdbcType=VARCHAR},
+			MUSIC_NAME = #{musicName, jdbcType=VARCHAR},
+			MUSIC_AUTHOR = #{musicAuthor, jdbcType=VARCHAR},
+			MUSIC_SRC = #{musicSrc, jdbcType=VARCHAR},
+			CREATE_BY = #{createBy, jdbcType=VARCHAR},
+			CREATE_DATE = #{createDate, jdbcType=VARCHAR},
+			UPDATE_BY = #{updateBy, jdbcType=VARCHAR},
+			UPDATE_DATE = #{updateDate, jdbcType=VARCHAR},
+			REMARKS = #{remarks, jdbcType=VARCHAR},
+			DEL_FLAG = #{delFlag, jdbcType=VARCHAR}
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<update id="updateNotNull" parameterType="MusicInfo">
+		UPDATE 
+			MUSIC_INFO  
+		<set>
+			<if test="id != null">
+				ID = #{id},
+			</if>
+			<if test="musicName != null">
+				MUSIC_NAME = #{musicName},
+			</if>
+			<if test="musicAuthor != null">
+				MUSIC_AUTHOR = #{musicAuthor},
+			</if>
+			<if test="musicSrc != null">
+				MUSIC_SRC = #{musicSrc},
+			</if>
+			<if test="createBy != null">
+				CREATE_BY = #{createBy},
+			</if>
+			<if test="createDate != null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="updateBy != null">
+				UPDATE_BY = #{updateBy},
+			</if>
+			<if test="updateDate != null">
+				UPDATE_DATE = #{updateDate},
+			</if>
+			<if test="remarks != null">
+				REMARKS = #{remarks},
+			</if>
+			<if test="delFlag != null">
+				DEL_FLAG = #{delFlag}
+			</if>
+		</set>
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		DELETE FROM 
+			MUSIC_INFO 
+		<where>
+			<foreach item="item" collection="_parameter.split(',')">
+				OR ID = #{item}
+			</foreach>
+		</where> 
+	</delete>
+
+	<select id="listPage" resultType="MusicInfo">
+		SELECT 
+			ID AS id,
+			MUSIC_NAME AS musicName ,
+			MUSIC_AUTHOR AS musicAuthor,
+			MUSIC_SRC AS musicSrc,
+			CREATE_BY AS createBy,
+			CREATE_DATE AS createDate,
+			UPDATE_BY AS updateBy,
+			UPDATE_DATE updateDate,
+			REMARKS remarks
+		FROM 
+			MUSIC_INFO  
+		<where>
+			<if test="search.musicName != null and search.musicName != '' ">
+				AND MUSIC_NAME LIKE CONCAT(CONCAT('%',#{search.musicName}),'%')
+			</if>
+			<if test="search.musicAuthor != null and search.musicAuthor != '' ">
+				AND MUSIC_AUTHOR LIKE CONCAT(CONCAT('%',#{search.musicAuthor}),'%')
+			</if>
+		</where>
+		<if test="collates != null and collates.size > 0">
+		<foreach item="item" collection="collates" 
+                        open="ORDER BY" separator=",">
+                ${item.sortField} ${item.sortType}
+           </foreach>
+		</if>
+	</select>
+</mapper>

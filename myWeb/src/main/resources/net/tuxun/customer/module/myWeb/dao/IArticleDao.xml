@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="net.tuxun.customer.module.myWeb.dao.IArticleDao">
+	
+	<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+	
+	<resultMap id="ArticleMap" type="Article">
+		<id property="id" column="ID" jdbcType="NVARCHAR"/>
+		<result property="categoryId" column="CATEGORY_ID" jdbcType="VARCHAR"/>
+		<result property="title" column="TITLE" jdbcType="VARCHAR"/>
+		<result property="content" column="CONTENT" jdbcType="BLOB"/>
+		<result property="link" column="LINK" jdbcType="VARCHAR"/>
+		<result property="color" column="COLOR" jdbcType="VARCHAR"/>
+		<result property="image" column="IMAGE" jdbcType="VARCHAR"/>
+		<result property="keywords" column="KEYWORDS" jdbcType="VARCHAR"/>
+		<result property="description" column="DESCRIPTION" jdbcType="VARCHAR"/>
+		<result property="weight" column="WEIGHT" jdbcType="INTEGER"/>
+		<result property="weightDate" column="WEIGHT_DATE" jdbcType="DATE"/>
+		<result property="pushParise" column="PUSH_PARISE" jdbcType="INTEGER"/>
+		<result property="hits" column="HITS" jdbcType="INTEGER"/>
+		<result property="posid" column="POSID" jdbcType="VARCHAR"/>
+		<result property="customContentView" column="CUSTOM_CONTENT_VIEW" jdbcType="VARCHAR"/>
+		<result property="viewConfig" column="VIEW_CONFIG" jdbcType="VARCHAR"/>
+		<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR"/>
+		<result property="createDate" column="CREATE_DATE" jdbcType="DATE"/>
+		<result property="updateBy" column="UPDATE_BY" jdbcType="VARCHAR"/>
+		<result property="updateDate" column="UPDATE_DATE" jdbcType="DATE"/>
+		<result property="remarks" column="REMARKS" jdbcType="VARCHAR"/>
+		<result property="delFlag" column="DEL_FLAG" jdbcType="VARCHAR"/>
+		<result property="vulnerableNum" column="vulnerable_num" jdbcType="INTEGER"/>
+		<result property="likeNum" column="like_num" jdbcType="INTEGER"/>
+		<result property="interestedNum" column="interested_num" jdbcType="INTEGER"/>
+		<result property="zzFlag" column="zz_flag" jdbcType="VARCHAR"/>
+	</resultMap>
+	
+	<select id="select" resultMap="ArticleMap" parameterType="string">
+		SELECT
+			*
+		FROM
+			ARTICLE 
+		WHERE 
+			ID=#{id} 
+	</select>
+	
+	<insert id="insert" parameterType="Article">
+		INSERT INTO ARTICLE  (
+			ID,
+			CATEGORY_ID,
+			TITLE,
+			CONTENT,
+			LINK,
+			COLOR,
+			IMAGE,
+			KEYWORDS,
+			DESCRIPTION,
+			WEIGHT,
+			WEIGHT_DATE,
+			PUSH_PARISE,
+			HITS,
+			POSID,
+			CUSTOM_CONTENT_VIEW,
+			VIEW_CONFIG,
+			CREATE_BY,
+			CREATE_DATE,
+			UPDATE_BY,
+			UPDATE_DATE,
+			REMARKS,
+			DEL_FLAG,
+			zz_flag
+		) VALUES (
+			#{id, jdbcType=VARCHAR},
+			#{categoryId, jdbcType=VARCHAR},
+			#{title, jdbcType=VARCHAR},
+			#{content, jdbcType=BLOB},
+			#{link, jdbcType=VARCHAR},
+			#{color, jdbcType=VARCHAR},
+			#{image, jdbcType=VARCHAR},
+			#{keywords, jdbcType=VARCHAR},
+			#{description, jdbcType=VARCHAR},
+			#{weight, jdbcType=INTEGER},
+			#{weightDate, jdbcType=DATE},
+			#{pushParise, jdbcType=INTEGER},
+			#{hits, jdbcType=INTEGER},
+			#{posid, jdbcType=VARCHAR},
+			#{customContentView, jdbcType=VARCHAR},
+			#{viewConfig, jdbcType=VARCHAR},
+			#{createBy, jdbcType=VARCHAR},
+			#{createDate, jdbcType=DATE},
+			#{updateBy, jdbcType=VARCHAR},
+			#{updateDate, jdbcType=DATE},
+			#{remarks, jdbcType=VARCHAR},
+			#{delFlag, jdbcType=VARCHAR},
+			#{zzFlag, jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="update" parameterType="Article">
+		UPDATE 
+			ARTICLE  
+		SET
+			ID = #{id, jdbcType=VARCHAR},
+			CATEGORY_ID = #{categoryId, jdbcType=VARCHAR},
+			TITLE = #{title, jdbcType=VARCHAR},
+			CONTENT = #{content, jdbcType=BLOB},
+			LINK = #{link, jdbcType=VARCHAR},
+			COLOR = #{color, jdbcType=VARCHAR},
+			IMAGE = #{image, jdbcType=VARCHAR},
+			KEYWORDS = #{keywords, jdbcType=VARCHAR},
+			DESCRIPTION = #{description, jdbcType=VARCHAR},
+			WEIGHT = #{weight, jdbcType=INTEGER},
+			WEIGHT_DATE = #{weightDate, jdbcType=DATE},
+			PUSH_PARISE = #{pushParise, jdbcType=INTEGER},
+			HITS = #{hits, jdbcType=INTEGER},
+			POSID = #{posid, jdbcType=VARCHAR},
+			CUSTOM_CONTENT_VIEW = #{customContentView, jdbcType=VARCHAR},
+			VIEW_CONFIG = #{viewConfig, jdbcType=VARCHAR},
+			CREATE_BY = #{createBy, jdbcType=VARCHAR},
+			CREATE_DATE = #{createDate, jdbcType=DATE},
+			UPDATE_BY = #{updateBy, jdbcType=VARCHAR},
+			UPDATE_DATE = #{updateDate, jdbcType=DATE},
+			REMARKS = #{remarks, jdbcType=VARCHAR},
+			DEL_FLAG = #{delFlag, jdbcType=VARCHAR},
+			vulnerable_num = #{vulnerableNum, jdbcType=INTEGER},
+			like_num = #{likeNum, jdbcType=INTEGER},
+			interested_num = #{interestedNum, jdbcType=INTEGER},
+			zz_flag = #{zzFlag, jdbcType=VARCHAR}
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<update id="updateNotNull" parameterType="Article">
+		UPDATE 
+			ARTICLE  
+		<set>
+			<if test="id != null">
+				ID = #{id},
+			</if>
+			<if test="categoryId != null">
+				CATEGORY_ID = #{categoryId},
+			</if>
+			<if test="title != null">
+				TITLE = #{title},
+			</if>
+			<if test="content != null">
+				CONTENT = #{content},
+			</if>
+			<if test="link != null">
+				LINK = #{link},
+			</if>
+			<if test="color != null">
+				COLOR = #{color},
+			</if>
+			<if test="image != null">
+				IMAGE = #{image},
+			</if>
+			<if test="keywords != null">
+				KEYWORDS = #{keywords},
+			</if>
+			<if test="description != null">
+				DESCRIPTION = #{description},
+			</if>
+			<if test="weight != null">
+				WEIGHT = #{weight},
+			</if>
+			<if test="weightDate != null">
+				WEIGHT_DATE = #{weightDate},
+			</if>
+			<if test="pushParise != null">
+				PUSH_PARISE = #{pushParise},
+			</if>
+			<if test="hits != null">
+				HITS = #{hits},
+			</if>
+			<if test="posid != null">
+				POSID = #{posid},
+			</if>
+			<if test="customContentView != null">
+				CUSTOM_CONTENT_VIEW = #{customContentView},
+			</if>
+			<if test="viewConfig != null">
+				VIEW_CONFIG = #{viewConfig},
+			</if>
+			<if test="createBy != null">
+				CREATE_BY = #{createBy},
+			</if>
+			<if test="createDate != null">
+				CREATE_DATE = #{createDate},
+			</if>
+			<if test="updateBy != null">
+				UPDATE_BY = #{updateBy},
+			</if>
+			<if test="updateDate != null">
+				UPDATE_DATE = #{updateDate},
+			</if>
+			<if test="remarks != null">
+				REMARKS = #{remarks},
+			</if>
+			<if test="delFlag != null">
+				DEL_FLAG = #{delFlag},
+			</if>
+			<if test="vulnerableNum != null">
+				vulnerable_num = #{vulnerableNum},
+			</if>
+			<if test="likeNum != null">
+				like_num = #{likeNum},
+			</if>
+			<if test="interestedNum != null">
+				interested_num = #{interestedNum}
+			</if>
+		</set>
+    	WHERE 
+    		ID = #{id} 
+	</update>
+	
+	<delete id="delete" parameterType="string">
+		DELETE FROM 
+			ARTICLE 
+		<where>
+			<foreach item="item" collection="_parameter.split(',')">
+				OR ID = #{item}
+			</foreach>
+		</where> 
+	</delete>
+
+	<select id="listPage" resultType="Article">
+		SELECT 
+			ID AS id,
+			CATEGORY_ID AS categoryId,
+			TITLE AS title,
+			CONTENT AS content,
+			LINK AS link,
+			COLOR AS color,
+			IMAGE AS image,
+			KEYWORDS AS keyWords,
+			DESCRIPTION AS description,
+			WEIGHT AS weight,
+			WEIGHT_DATE AS weightDate,
+			PUSH_PARISE AS pushParise,
+			HITS AS hits,
+			POSID AS posid,
+			CUSTOM_CONTENT_VIEW AS customContentView,
+			VIEW_CONFIG AS viewConfig,
+			CREATE_BY AS createBy,
+			CREATE_DATE AS createDate,
+			UPDATE_BY AS updateBy,
+			UPDATE_DATE AS updateDate,
+			REMARKS AS remarks,
+			DEL_FLAG AS delFlag,
+			vulnerable_num AS vulnerableNum,
+			like_num AS likeNum,
+			interested_num AS interestedNum,
+			zz_flag AS zzFlag
+		FROM 
+			ARTICLE  
+		<where>
+			<if test="search.categoryId != null and search.categoryId != '' ">
+				AND category_id = #{search.categoryId}
+			</if>
+			<if test="search.title != null and search.title != '' ">
+				AND title LIKE CONCAT(CONCAT('%',#{search.title}),'%')
+			</if>
+			<if test="search.keywords != null and search.keywords != '' ">
+				AND keywords LIKE CONCAT(CONCAT('%',#{search.keywords}),'%')
+			</if>
+			<if test="search.createBy != null and search.createBy != '' ">
+				AND create_by LIKE CONCAT(CONCAT('%',#{search.createBy}),'%')
+			</if>
+		</where>
+		<if test="collates != null and collates.size > 0">
+			<foreach item="item" collection="collates" 
+                        open="ORDER BY" separator=",">
+                ${item.sortField} ${item.sortType}
+            </foreach>
+		</if>
+	</select>
+	
+	<select id="selectFull" resultMap="FullArticleMap" useCache="false">
+		SELECT
+			*
+		FROM
+			ARTICLE
+		WHERE 
+			ID=#{id}
+	</select>
+	<resultMap id="FullArticleMap" type="Article">
+		<id property="id" column="ID" jdbcType="NVARCHAR"/>
+		<result property="categoryId" column="CATEGORY_ID" jdbcType="VARCHAR"/>
+		<result property="title" column="TITLE" jdbcType="VARCHAR"/>
+		<result property="content" column="CONTENT" jdbcType="BLOB"/>
+		<result property="link" column="LINK" jdbcType="VARCHAR"/>
+		<result property="color" column="COLOR" jdbcType="VARCHAR"/>
+		<result property="image" column="IMAGE" jdbcType="VARCHAR"/>
+		<result property="keywords" column="KEYWORDS" jdbcType="VARCHAR"/>
+		<result property="description" column="DESCRIPTION" jdbcType="VARCHAR"/>
+		<result property="weight" column="WEIGHT" jdbcType="INTEGER"/>
+		<result property="weightDate" column="WEIGHT_DATE" jdbcType="DATE"/>
+		<result property="pushParise" column="PUSH_PARISE" jdbcType="INTEGER"/>
+		<result property="hits" column="HITS" jdbcType="INTEGER"/>
+		<result property="posid" column="POSID" jdbcType="VARCHAR"/>
+		<result property="customContentView" column="CUSTOM_CONTENT_VIEW" jdbcType="VARCHAR"/>
+		<result property="viewConfig" column="VIEW_CONFIG" jdbcType="VARCHAR"/>
+		<result property="createBy" column="CREATE_BY" jdbcType="VARCHAR"/>
+		<result property="createDate" column="CREATE_DATE" jdbcType="DATE"/>
+		<result property="updateBy" column="UPDATE_BY" jdbcType="VARCHAR"/>
+		<result property="updateDate" column="UPDATE_DATE" jdbcType="DATE"/>
+		<result property="remarks" column="REMARKS" jdbcType="VARCHAR"/>
+		<result property="delFlag" column="DEL_FLAG" jdbcType="VARCHAR"/>
+		<result property="vulnerableNum" column="vulnerable_num" jdbcType="INTEGER"/>
+		<result property="likeNum" column="like_num" jdbcType="INTEGER"/>
+		<result property="interestedNum" column="interested_num" jdbcType="INTEGER"/>
+		<collection property="cmsComments" column="id" javaType="ArrayList" 
+		ofType="CmsComment" select="net.tuxun.customer.module.Article.dao.ICmsCommentDao.listByPrimaryTableId" />
+	</resultMap>
+</mapper>
